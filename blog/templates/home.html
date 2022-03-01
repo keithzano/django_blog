@@ -1,0 +1,42 @@
+  {% extends "layouts/base.html" %}
+
+
+{%block content%}
+
+    <!-- ====== Banner Start ====== -->
+    {% load static %}
+    
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== Blog Start ====== -->
+    <section class="ud-blog-grids">
+      <div class="container">
+        <div class="row">
+          {% for post in posts %}
+          <div class="col-lg-4 col-md-6">
+            <div class="ud-single-blog">
+              <div class="ud-blog-image">
+                <a href="{% url 'post-detail' post.id %}">
+                  <img src="{{ post.thumbnail.url }} " alt="blog" />
+                </a>
+              </div>
+              <div class="ud-blog-content">
+                <span class="ud-blog-date">{{ post.date_posted|date:"d M, Y" }}</span>
+                <h3 class="ud-blog-title">
+                  <a href="blog-details.html">
+                    {{ post.title }}
+                  </a>
+                </h3>
+                <p class="ud-blog-desc">
+                  {{ post.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- ====== Blog End ====== -->
+ {%endblock content%}
+

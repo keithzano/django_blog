@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{%block content%}
+
+  <div class="container">
+    <form method="Post">
+      {%csrf_token%}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+         Delete Post
+        </legend>
+         <h3>Are you you sure you want to delete the post "{{object.title}}"</h3>
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-danger" type="submit"> Yes Delete</button>
+        <a class="btn btn-outline-secondary" href=" {% url 'post-detail' object.id %} ">Cancel</a>
+      </div>
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        Dont have an account
+        <a href="{% url 'register' %}">Sign Up</a>
+      </small>
+    </div>
+  </div>
+    
+{%endblock content%}
+

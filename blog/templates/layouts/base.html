@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- header files --> 
+    {% include "layouts/head.html" %}
+    <!-- end header files --> 
+
+    <body class="antialiased">
+
+
+        <!-- start nav --> 
+        {% include "layouts/navbar.html" %}
+        <!-- end nav --> 
+
+        <!-- start massages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="container alert alert-{{message.tags}} ">
+                    {{ message }} 
+                </div>
+            {%endfor%}
+        {% endif %}
+        <!-- end massages -->
+
+        <!-- start content --> 
+        {% block content %}
+        {% endblock content %}
+        <!-- end content --> 
+
+        <!-- start footer -->
+        {% include "layouts/footer.html" %}
+        <!-- end footer -->
+
+        <!-- start javascritp -->
+        {% include "layouts/js.html" %}
+        <!-- end javascritp -->  
+          
+    </body>
+</html>
